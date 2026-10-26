@@ -224,8 +224,7 @@ function renderStep(){
           '<span class="ic">'+o.ic+'</span><span class="tx"><span>'+o.t+'</span><small>'+o.s+'</small></span></div>';
   });
   html+='</div><div class="navbtns">';
-  if(step>0) html+='<button class="btn ghost" onclick="go(-1)">← 上一步</button>';
-  html+='<button class="btn primary" onclick="go(1)" '+(ans[Q.key]?'':'disabled')+'>下一步 →</button>';
+  if(step>0) html+='<button class="btn ghost" onclick="go(-1)">← 返回上一步</button>';
   html+='</div></div>';
   quizEl.innerHTML=html;
   quizEl.style.display="block";
@@ -235,7 +234,7 @@ function renderStep(){
 
 function choose(key,v){
   ans[key]=v;
-  renderStep();
+  go(1);
 }
 function go(d){
   if(d>0 && !ans[QUESTIONS[step].key]) return;
